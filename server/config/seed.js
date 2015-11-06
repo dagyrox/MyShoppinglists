@@ -6,12 +6,14 @@
 'use strict';
 
 var Thing = require('../api/thing/thing.model');
+var Shoppinglist = require('../api/shoppinglist/shoppinglist.model');
 var User = require('../api/user/user.model');
 
 Thing.find({}).remove(function() {
   Thing.create({
     name : 'Development Tools',
-    info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
+    info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.',
+    test : 'this is just a test'
   }, {
     name : 'Server and Client integration',
     info : 'Built with a powerful and fun stack: MongoDB, Express, AngularJS, and Node.'
@@ -27,6 +29,20 @@ Thing.find({}).remove(function() {
   },{
     name : 'Deployment Ready',
     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
+  });
+});
+
+Shoppinglist.find({}).remove(function() {
+  Shoppinglist.create({
+    name : 'Bills CC Budget',
+    info : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
+    active: true,
+    startdate: '2015-11-05',
+    stopdate: '2015-11-12',
+    owner: "563cc0c1659a1954145dde43",
+    budget: 200.00,
+    shared: ["563cc0c1659a1954145dde42"],
+    items: []
   });
 });
 

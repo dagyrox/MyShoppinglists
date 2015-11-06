@@ -3,15 +3,29 @@
 <md-grid-list class="things-list" md-cols-sm="1" md-cols-md="2" md-cols-gt-md="5"
         md-row-height-gt-md="1:1" md-row-height="4:3"
         md-gutter="8px" md-gutter-gt-sm="4px">
-  <md-grid-tile ng-repeat="thing in awesomeThings" ng-class="getColor($index)" md-rowspan="{{getSpan($index)}}"
-                  md-colspan="{{getSpan($index)}}"
-                  md-colspan-sm="1">
+  <md-grid-tile 
+    ng-repeat="thing in awesomeThings" 
+    ng-class="getColor($index)" 
+    md-rowspan="{{getSpan($index)}}"
+    md-colspan="{{getSpan($index)}}"
+    md-colspan-sm="1">
+
+    <md-grid-tile-header>
+      <md-icon class="md-avatar" md-svg-icon="avatar:svg-{{ ($index + 1) % 11 }}"></md-icon>
+      <h3 style='display:inline'>{{thing.name}} - {{thing.budget}}</h3>
+    </md-grid-tile-header>
+
+    <div layout='column' layout-align='space-around center' style='color:white'>
+      <h4>Description: {{thing.info}}</h4>
+      <h4>Between: {{thing.startdate|date:'mediumDate'}} - {{thing.stopdate|date:'mediumDate'}}</h4>
+      <h4>Owner: {{thing.owner}}</h4>
+    </div>
     
     <md-button aria-label="Remove item" class="md-icon-button delete-btn" ng-click="deleteThing(thing)">
       <md-icon style="fill: #fff" md-svg-icon="action:delete"></md-icon>
     </md-button>
     
-    <md-icon class="avatar-icon" md-svg-icon="avatar:svg-{{ ($index + 1) % 11 }}"></md-icon>
-    <md-grid-tile-footer><h3>{{thing.name}}</h3></md-grid-tile-footer>
+    
+
   </md-grid-tile>
 </md-grid-list>

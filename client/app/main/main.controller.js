@@ -4,9 +4,9 @@ angular.module('myShoppinglistApp')
   .controller('MainCtrl', function ($scope, $http, socket) {
     $scope.awesomeThings = [];
 
-    $http.get('/api/things').success(function(awesomeThings) {
+    $http.get('/api/shoppinglist').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
+      socket.syncUpdates('shoppinglist', $scope.awesomeThings);
     });
 
     $scope.getColor = function($index) {
@@ -39,10 +39,10 @@ angular.module('myShoppinglistApp')
     };
 
     $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+      $http.delete('/api/shoppinglist/' + thing._id);
     };
 
     $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
+      socket.unsyncUpdates('shoppinglist');
     });
   });
