@@ -10,16 +10,16 @@
     md-colspan="{{getSpan($index)}}"
     md-colspan-sm="1">
 
-    <md-grid-tile-header>
+    <md-grid-tile-header ng-click="goToShoppinglist(thing._id);">
       <md-icon class="md-avatar" md-svg-icon="avatar:svg-{{ ($index + 1) % 11 }}"></md-icon>
       <h3 style='display:inline'>{{thing.name}} - {{thing.budget}}</h3>
     </md-grid-tile-header>
 
-    <div layout='column' layout-align='space-around center' style='color:white'>
+    <!--div class='tileDetails' layout='column' layout-align='space-around center'>
       <h4>Description: {{thing.info}}</h4>
       <h4>Between: {{thing.startdate|date:'mediumDate'}} - {{thing.stopdate|date:'mediumDate'}}</h4>
       <h4>Owner: {{thing.owner}}</h4>
-    </div>
+    </div-->
     
     <md-button aria-label="Remove item" class="md-icon-button delete-btn" ng-click="deleteThing(thing)">
       <md-icon style="fill: #fff" md-svg-icon="action:delete"></md-icon>

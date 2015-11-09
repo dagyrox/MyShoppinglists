@@ -43,6 +43,62 @@ Shoppinglist.find({}).remove(function() {
     budget: 200.00,
     shared: ["563cc0c1659a1954145dde42"],
     items: []
+  },
+  {
+    name : 'Bills CC Budget',
+    info : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
+    active: true,
+    startdate: '2015-10-31',
+    stopdate: '2015-11-06',
+    owner: "563cc0c1659a1954145dde43",
+    budget: 200.00,
+    shared: ["563cc0c1659a1954145dde42"],
+    items: []
+  },
+  {
+    name : 'Bills CC Budget',
+    info : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
+    active: true,
+    startdate: '2015-10-23',
+    stopdate: '2015-10-30',
+    owner: "563cc0c1659a1954145dde43",
+    budget: 200.00,
+    shared: ["563cc0c1659a1954145dde42"],
+    items: 
+      [
+        {
+          name:"Water-24pk",
+          description:"24 pack of water",
+          store : "563bc09c019ab76c30a11925",
+          cost : 10.00,
+          taxflag : false
+        },
+        {
+          Name: "Water-12pk",
+          Description : "12-Pack of bottled water",
+          Store : "563bc0ff019ab76c30a11927",
+          Cost : 5.75,
+          TaxFlag : false
+        },
+        {
+          Name : "Toilet Paper",
+          Description : "Charmin 36Rolls Aloe",
+          Store : "563bc0c8019ab76c30a11926",
+          Cost : 13.7500000000000000,
+          TaxFlag : true
+        }
+      ]
+  },
+  {
+    name : 'Bills CC Budget',
+    info : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
+    active: true,
+    startdate: '2015-10-15',
+    stopdate: '2015-10-22',
+    owner: "563cc0c1659a1954145dde43",
+    budget: 200.00,
+    shared: ["563cc0c1659a1954145dde42"],
+    items: []
   });
 });
 

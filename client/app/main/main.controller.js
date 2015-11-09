@@ -31,16 +31,23 @@ angular.module('myShoppinglistApp')
     };
 
     $scope.getSpan = function($index) {
-      var _d = ($index + 1) % 11;
+      /*var _d = ($index + 1) % 11;
 
       if (_d === 1 || _d === 5) {
         return 2;
-      }
+      }*/
+      return $index == 0 ? 2 : 1;
     };
 
     $scope.deleteThing = function(thing) {
       $http.delete('/api/shoppinglist/' + thing._id);
     };
+
+    $scope.goToShoppinglist = function(id)
+    {
+      alert(id);
+      $location.path('/shoppinglist');
+    }
 
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('shoppinglist');

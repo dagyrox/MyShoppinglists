@@ -87,3 +87,18 @@
   right: 0;
   z-index: 1;
 }
+
+md-grid-tile-header
+{
+  padding-left: 15px;  
+}
+
+div .tileDetails
+{
+  color:white;
+}
+
+h4 .tileDescription
+{
+  color:red; 
+}
