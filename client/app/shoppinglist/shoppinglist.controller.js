@@ -3,9 +3,21 @@
 angular.module('myShoppinglistApp')
   .controller('ShoppinglistCtrl', function ($scope, $location, $http) {
   	var queryString = $location.search();
-  	var thisShoppinglist;
 
-  	$http.get('/api/shoppinglist/'+queryString.id).success(function(data){$scope.thisShoppinglist = data; alert(thisShoppinglist._id);});
+  	$scope.thisShoppinglist = '';
+
+  	$http.get('/api/shoppinglist/'+queryString.id).success(
+  		function(data){
+  			$scope.thisShoppinglist = data; 
+
+		  	$http.get('/api/user/'+$scope.thisShoppinglist.owner).then(
+		  		function(data){
+		  			$scope.listOwner = data; 
+		  		},function(data)
+		  		{
+		  			alert(data);
+		  		});
+  		});
  
     $scope.message = 'Hello';
   });

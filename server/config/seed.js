@@ -9,7 +9,7 @@ var Thing = require('../api/thing/thing.model');
 var Shoppinglist = require('../api/shoppinglist/shoppinglist.model');
 var User = require('../api/user/user.model');
 
-Thing.find({}).remove(function() {
+/*Thing.find({}).remove(function() {
   Thing.create({
     name : 'Development Tools',
     info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.',
@@ -30,9 +30,9 @@ Thing.find({}).remove(function() {
     name : 'Deployment Ready',
     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
   });
-});
+});*/
 
-Shoppinglist.find({}).remove(function() {
+/*Shoppinglist.find({}).remove(function() {
   Shoppinglist.create({
     name : 'Bills CC Budget',
     info : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
@@ -61,7 +61,7 @@ Shoppinglist.find({}).remove(function() {
     active: true,
     startdate: '2015-10-23',
     stopdate: '2015-10-30',
-    owner: "563cc0c1659a1954145dde43",
+    owner: "5641e3bc92dee53815848f73",
     budget: 200.00,
     shared: ["563cc0c1659a1954145dde42"],
     items: 
@@ -100,9 +100,9 @@ Shoppinglist.find({}).remove(function() {
     shared: ["563cc0c1659a1954145dde42"],
     items: []
   });
-});
+});*/
 
-User.find({}).remove(function() {
+/*User.find({}).remove(function() {
   User.create({
     provider: 'local',
     name: 'Test User',
@@ -118,4 +118,4 @@ User.find({}).remove(function() {
       console.log('finished populating users');
     }
   );
-});
+});*/

@@ -1,9 +1,18 @@
 <div ng-include="'components/shell/shell.html'"></div>
 name: {{thisShoppinglist.name}}
+owner: {{listOwner.name}}
 
-<md-list >
+<table>
+	<tr ng-repeat='item in thisShoppinglist.items'>
+		<td>{{item.name}}</td>
+		<td>{{item.cost}}</td>
+		<td>{{item.store}}</td>
+		<td>{{item.taxflag}}</td>
+	</tr>
+</table>
+
+<!--md-list >
   <md-list-item ng-repeat='item in thisShoppinglist.items'>
-  	<p>{{item.name}} - {{item.description}}</p>
-  	<p>{{item.cost}} - {{item.taxflag}}</p>
+  	<p> - {{item.description}}	for {{item.cost}} at {{item.store}} - Taxed: {{item.taxflag}}</p>
   </md-list-item>
-</md-list>
+</md-list-->
