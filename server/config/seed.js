@@ -79,7 +79,8 @@ Shoppinglist.find({}).remove(function() {
               geocode:'28.1862503,-82.5445883'
             },
           cost : 10.00,
-          taxflag : false
+          taxflag : false,
+          done:false
         },
         {
           name: "Water-12pk",
@@ -94,7 +95,8 @@ Shoppinglist.find({}).remove(function() {
               geocode:'28.1862503,-82.5445883'
             },
           cost : 5.75,
-          taxflag : false
+          taxflag : false,
+          done:false
         },
         {
           name : "Toilet Paper",
@@ -109,7 +111,8 @@ Shoppinglist.find({}).remove(function() {
               geocode:'28.1862503,-82.5445883'
             },
           cost : 13.7500000000000000,
-          taxflag : true
+          taxflag : true,
+          done:true
         }
       ]
   },

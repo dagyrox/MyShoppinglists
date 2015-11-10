@@ -1,3 +1,11 @@
+//location of this scafolding.
 https://github.com/sincraianul/generator-angular-material-fullstack
 
+
+//mongodb gui
 http://robomongo.org/
+
+
+//i'd like to use the following example to help me layout the left navigation and the detailed
+//view of a shopping list
+http://codepen.io/kyleledbetter/pen/gbQOaV

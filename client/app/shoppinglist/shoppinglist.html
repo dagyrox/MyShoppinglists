@@ -1,4 +1,4 @@
-<div ng-include="'components/shell/shell.html'"></div>
+<!--div ng-include="'components/shell/shell.html'"></div-->
 <p>Description: {{thisShoppinglist.info}}</p>
 <p>Owner: {{thisShoppinglist.owner}}</p>
 <p>Shared with: {{thisShoppinglist.shared}}</p>
@@ -11,18 +11,18 @@
 		<!--http://stackoverflow.com/questions/22731145/calculating-sum-of-repeated-elements-in-angularjs-ng-repeat-->
 		<caption>{{thisShoppinglist.name}}</caption>
 		<tr>
-			<td><input type='checkbox' name='itemDone'>Done</td>
+			<td><input type='checkbox' ng-model='master'>Done</td>
 			<td>Item</td>
 			<td>Cost</td>
 			<td>Store</td>
 			<td>Tax?</td>
 		</tr>
-		<tr ng-repeat='item in thisShoppinglist.items'>
-			<td><input type="checkbox" name='itemDone'></td>
-			<td>{{item.name}}</td>
-			<td>{{item.cost}}</td>
-			<td>{{item.store.name}}</td>
-			<td>{{item.taxflag}}</td>
+		<tr ng-repeat='item in thisShoppinglist.items' >
+			<td><input type="checkbox" ng-checked='master' ng-model='item.done'></td>
+			<td class='strike-{{item.done}}'>{{item.name}}</td>
+			<td class='strike-{{item.done}}'>{{item.cost}}</td>
+			<td class='strike-{{item.done}}'>{{item.store.name}}</td>
+			<td class='strike-{{item.done}}'>{{item.taxflag}}</td>
 		</tr>
 	</tbody>
 </table>
