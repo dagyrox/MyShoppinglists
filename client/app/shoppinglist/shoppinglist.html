@@ -1,14 +1,30 @@
 <div ng-include="'components/shell/shell.html'"></div>
-name: {{thisShoppinglist.name}}
-owner: {{listOwner.name}}
+<p>Description: {{thisShoppinglist.info}}</p>
+<p>Owner: {{thisShoppinglist.owner}}</p>
+<p>Shared with: {{thisShoppinglist.shared}}</p>
+<p>Budget: {{thisShoppinglist.budget}}</p>
+
+</br>
 
 <table>
-	<tr ng-repeat='item in thisShoppinglist.items'>
-		<td>{{item.name}}</td>
-		<td>{{item.cost}}</td>
-		<td>{{item.store}}</td>
-		<td>{{item.taxflag}}</td>
-	</tr>
+	<tbody>
+		<!--http://stackoverflow.com/questions/22731145/calculating-sum-of-repeated-elements-in-angularjs-ng-repeat-->
+		<caption>{{thisShoppinglist.name}}</caption>
+		<tr>
+			<td><input type='checkbox' name='itemDone'>Done</td>
+			<td>Item</td>
+			<td>Cost</td>
+			<td>Store</td>
+			<td>Tax?</td>
+		</tr>
+		<tr ng-repeat='item in thisShoppinglist.items'>
+			<td><input type="checkbox" name='itemDone'></td>
+			<td>{{item.name}}</td>
+			<td>{{item.cost}}</td>
+			<td>{{item.store.name}}</td>
+			<td>{{item.taxflag}}</td>
+		</tr>
+	</tbody>
 </table>
 
 <!--md-list >

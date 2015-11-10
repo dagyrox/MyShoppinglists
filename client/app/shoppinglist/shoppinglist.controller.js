@@ -14,9 +14,7 @@ angular.module('myShoppinglistApp')
 		  		function(data){
 		  			$scope.listOwner = data; 
 		  		},function(data)
-		  		{
-		  			alert(data);
-		  		});
+		  		{});
   		});
  
     $scope.message = 'Hello';

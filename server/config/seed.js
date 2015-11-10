@@ -32,14 +32,14 @@ var User = require('../api/user/user.model');
   });
 });*/
 
-/*Shoppinglist.find({}).remove(function() {
+Shoppinglist.find({}).remove(function() {
   Shoppinglist.create({
     name : 'Bills CC Budget',
     info : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
     active: true,
     startdate: '2015-11-05',
     stopdate: '2015-11-12',
-    owner: "563cc0c1659a1954145dde43",
+    owner: "5641eb1e8f83dce417a42ada",
     budget: 200.00,
     shared: ["563cc0c1659a1954145dde42"],
     items: []
@@ -50,7 +50,7 @@ var User = require('../api/user/user.model');
     active: true,
     startdate: '2015-10-31',
     stopdate: '2015-11-06',
-    owner: "563cc0c1659a1954145dde43",
+    owner: "5641eb1e8f83dce417a42ada",
     budget: 200.00,
     shared: ["563cc0c1659a1954145dde42"],
     items: []
@@ -61,7 +61,7 @@ var User = require('../api/user/user.model');
     active: true,
     startdate: '2015-10-23',
     stopdate: '2015-10-30',
-    owner: "5641e3bc92dee53815848f73",
+    owner: "5641eb1e8f83dce417a42ada",
     budget: 200.00,
     shared: ["563cc0c1659a1954145dde42"],
     items: 
@@ -69,23 +69,47 @@ var User = require('../api/user/user.model');
         {
           name:"Water-24pk",
           description:"24 pack of water",
-          store : "563bc09c019ab76c30a11925",
+          store : 
+            {
+              name:'Target - Odessa1', 
+              description:'Target in odessa, 54 n veterans',
+              street:'123 spooner st',
+              city:'land o lakes',
+              state:'fl',
+              geocode:'28.1862503,-82.5445883'
+            },
           cost : 10.00,
           taxflag : false
         },
         {
-          Name: "Water-12pk",
-          Description : "12-Pack of bottled water",
-          Store : "563bc0ff019ab76c30a11927",
-          Cost : 5.75,
-          TaxFlag : false
+          name: "Water-12pk",
+          description : "12-Pack of bottled water",
+          store : 
+            {
+              name:'Target - Odessa2', 
+              description:'Target in odessa, 54 n veterans',
+              street:'123 spooner st',
+              city:'land o lakes',
+              state:'fl',
+              geocode:'28.1862503,-82.5445883'
+            },
+          cost : 5.75,
+          taxflag : false
         },
         {
-          Name : "Toilet Paper",
-          Description : "Charmin 36Rolls Aloe",
-          Store : "563bc0c8019ab76c30a11926",
-          Cost : 13.7500000000000000,
-          TaxFlag : true
+          name : "Toilet Paper",
+          description : "Charmin 36Rolls Aloe",
+          store : 
+            {
+              name:'Target - Odessa3', 
+              description:'Target in odessa, 54 n veterans',
+              street:'123 spooner st',
+              city:'land o lakes',
+              state:'fl',
+              geocode:'28.1862503,-82.5445883'
+            },
+          cost : 13.7500000000000000,
+          taxflag : true
         }
       ]
   },
@@ -95,12 +119,12 @@ var User = require('../api/user/user.model');
     active: true,
     startdate: '2015-10-15',
     stopdate: '2015-10-22',
-    owner: "563cc0c1659a1954145dde43",
+    owner: "5641eb1e8f83dce417a42ada",
     budget: 200.00,
     shared: ["563cc0c1659a1954145dde42"],
     items: []
   });
-});*/
+});
 
 /*User.find({}).remove(function() {
   User.create({
