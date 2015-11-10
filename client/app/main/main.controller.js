@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myShoppinglistApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
+  .controller('MainCtrl', function ($scope, $location, $http, socket) {
     $scope.awesomeThings = [];
 
     $http.get('/api/shoppinglist').success(function(awesomeThings) {
@@ -43,9 +43,9 @@ angular.module('myShoppinglistApp')
       $http.delete('/api/shoppinglist/' + thing._id);
     };
 
-    $scope.goToShoppinglist = function(id)
+    $scope.goToShoppinglist = function(gotoid)
     {
-      alert(id);
+      $location.search({id:gotoid});
       $location.path('/shoppinglist');
     }
 

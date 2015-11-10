@@ -1,3 +1,9 @@
-<div class="col-md-12">
-This is the shoppinglist view.
-</div>
+<div ng-include="'components/shell/shell.html'"></div>
+name: {{thisShoppinglist.name}}
+
+<md-list >
+  <md-list-item ng-repeat='item in thisShoppinglist.items'>
+  	<p>{{item.name}} - {{item.description}}</p>
+  	<p>{{item.cost}} - {{item.taxflag}}</p>
+  </md-list-item>
+</md-list>

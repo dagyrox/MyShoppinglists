@@ -10,9 +10,9 @@
     md-colspan="{{getSpan($index)}}"
     md-colspan-sm="1">
 
-    <md-grid-tile-header ng-click="goToShoppinglist(thing._id);">
+    <md-grid-tile-header>
       <md-icon class="md-avatar" md-svg-icon="avatar:svg-{{ ($index + 1) % 11 }}"></md-icon>
-      <h3 style='display:inline'>{{thing.name}} - {{thing.budget}}</h3>
+      <h3 style='display:inline'><a ng-click="goToShoppinglist(thing._id)">{{thing.name}} - {{thing.budget}}</a></h3>
     </md-grid-tile-header>
 
     <!--div class='tileDetails' layout='column' layout-align='space-around center'>
