@@ -10,11 +10,11 @@ angular.module('myShoppinglistApp')
   		function(data){
   			$scope.thisShoppinglist = data; 
 
-		  	$http.get('/api/user/'+$scope.thisShoppinglist.owner).then(
+		  	/*$http.get('/api/user/'+$scope.thisShoppinglist.owner).then(
 		  		function(data){
 		  			$scope.listOwner = data; 
 		  		},function(data)
-		  		{});
+		  		{});*/
   		});
  
     $scope.message = 'Hello';
