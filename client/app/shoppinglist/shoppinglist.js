@@ -8,17 +8,3 @@ angular.module('myShoppinglistApp')
         controller: 'ShoppinglistCtrl'
       });
   });
-
-function setCheckboxes(e)
-{
-	var checked = $(e).is(':checked');
-
-	$('input[name=listChkBx]').each(function(){
-		var thisChecked = $(this).is(':checked');
-
-		if(checked != thisChecked)
-		{
-			$(this).trigger('click');
-		}
-	});
-}

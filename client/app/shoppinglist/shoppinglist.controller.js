@@ -18,4 +18,19 @@ angular.module('myShoppinglistApp')
   		});
  
     $scope.message = 'Hello';
+
+    $scope.setCheckboxes = function(id)
+    {
+      var checked = $scope.master;
+      var query = 'input[name=listChkBx-'+id+']';
+
+      $(query).each(function(){
+        var thisChecked = $(this).is(':checked');
+
+        if(checked != thisChecked)
+        {
+          $(this).trigger('click');
+        }
+      });
+    };
   });

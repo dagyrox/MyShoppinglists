@@ -11,7 +11,7 @@
 		<!--http://stackoverflow.com/questions/22731145/calculating-sum-of-repeated-elements-in-angularjs-ng-repeat-->
 		<caption>{{thisShoppinglist.name}}</caption>
 		<tr>
-			<td><input onClick='setCheckboxes(this);' type='checkbox'>Done</td>
+			<td><input ng-model='master' ng-click='setCheckboxes(thisShoppinglist._id);' type='checkbox'>Done</td>
 			<td>Item</td>
 			<td>Cost</td>
 			<td>Store</td>
@@ -19,7 +19,7 @@
 		</tr>
 		<tr ng-repeat='item in thisShoppinglist.items' >
 			<!--https://docs.angularjs.org/api/ng/directive/ngChecked-->
-			<td><input name="listChkBx" type="checkbox" ng-model='item.done'></td>
+			<td><input name="listChkBx-{{thisShoppinglist._id}}" type="checkbox" ng-model='item.done'></td>
 			<td class='strike-{{item.done}}'>{{item.name}}</td>
 			<td class='strike-{{item.done}}'>{{item.cost}}</td>
 			<td class='strike-{{item.done}}'>{{item.store.name}}</td>
