@@ -20,8 +20,8 @@ angular.module('myShoppinglistApp')
 
     $scope.saveChanges = function ()
     {
-      $http.put('/api/shoppinglist/'+queryString.id).success
-      ( function(){ alert('saved'); });
+      $http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
+      console.log($scope.thisShoppinglist._id);
     };
  
     $scope.message = 'Hello';

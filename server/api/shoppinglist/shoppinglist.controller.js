@@ -35,9 +35,13 @@ exports.update = function(req, res) {
   Shoppinglist.findById(req.params.id, function (err, shoppinglist) {
     if (err) { return handleError(res, err); }
     if(!shoppinglist) { return res.status(404).send('Not Found'); }
+    console.log(req.body);
     var updated = _.merge(shoppinglist, req.body);
+    console.log(updated);
     updated.save(function (err) {
-      if (err) { return handleError(res, err); }
+      console.log('err is ' + err);
+      if (err) {  return handleError(res, err); }
+      console.log('res is ' + shoppinglist);
       return res.status(200).json(shoppinglist);
     });
   });

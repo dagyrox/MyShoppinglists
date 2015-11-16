@@ -31,7 +31,7 @@ var User = require('../api/user/user.model');
     info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
   });
 });*/
-
+/*
 Shoppinglist.find({}).remove(function() {
   Shoppinglist.create({
     name : 'Bills CC Budget',
@@ -127,7 +127,7 @@ Shoppinglist.find({}).remove(function() {
     shared: ["563cc0c1659a1954145dde42"],
     items: []
   });
-});
+});*/
 
 /*User.find({}).remove(function() {
   User.create({
