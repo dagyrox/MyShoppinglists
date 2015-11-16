@@ -11,19 +11,31 @@
 		<!--http://stackoverflow.com/questions/22731145/calculating-sum-of-repeated-elements-in-angularjs-ng-repeat-->
 		<caption>{{thisShoppinglist.name}}</caption>
 		<tr>
-			<td><input ng-model='master' ng-click='setCheckboxes(thisShoppinglist._id);' type='checkbox'>Done</td>
+			<td><input ng-model='master' type='checkbox'></td>
+			<td>Done</td>
 			<td>Item</td>
 			<td>Cost</td>
 			<td>Store</td>
 			<td>Tax?</td>
+			<td>Del</td>
 		</tr>
 		<tr ng-repeat='item in thisShoppinglist.items' >
 			<!--https://docs.angularjs.org/api/ng/directive/ngChecked-->
-			<td><input name="listChkBx-{{thisShoppinglist._id}}" type="checkbox" ng-model='item.done'></td>
+			<td><input type="checkbox" ng-checked='master'></td>
+			<td>
+				<md-button aria-label="Remove item" class="md-icon-button delete-btn" ng-click="item.done = !item.done; saveChanges();">
+      				<md-icon style="fill: #000" md-svg-icon="action:{{iconMap[item.done]}}"</md-icon> <!--action:done for checkmark-->
+    			</md-button>
+			</td>
 			<td class='strike-{{item.done}}'>{{item.name}}</td>
 			<td class='strike-{{item.done}}'>{{item.cost}}</td>
 			<td class='strike-{{item.done}}'>{{item.store.name}}</td>
 			<td class='strike-{{item.done}}'>{{item.taxflag}}</td>
+			<td>
+				<md-button aria-label="Remove item" class="md-icon-button delete-btn" ng-click="deleteThing(thing)">
+      				<md-icon style="fill: #000" md-svg-icon="action:delete"></md-icon>
+    			</md-button>
+			</td>
 		</tr>
 	</tbody>
 </table>

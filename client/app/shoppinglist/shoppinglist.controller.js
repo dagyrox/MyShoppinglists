@@ -5,6 +5,7 @@ angular.module('myShoppinglistApp')
   	var queryString = $location.search();
 
   	$scope.thisShoppinglist = '';
+    $scope.iconMap = {"true":"restore", "false":"done"};
 
   	$http.get('/api/shoppinglist/'+queryString.id).success(
   		function(data){
@@ -16,21 +17,13 @@ angular.module('myShoppinglistApp')
 		  		},function(data)
 		  		{});*/
   		});
+
+    $scope.saveChanges = function ()
+    {
+      $http.put('/api/shoppinglist/'+queryString.id).success
+      ( function(){ alert('saved'); });
+    };
  
     $scope.message = 'Hello';
 
-    $scope.setCheckboxes = function(id)
-    {
-      var checked = $scope.master;
-      var query = 'input[name=listChkBx-'+id+']';
-
-      $(query).each(function(){
-        var thisChecked = $(this).is(':checked');
-
-        if(checked != thisChecked)
-        {
-          $(this).trigger('click');
-        }
-      });
-    };
   });

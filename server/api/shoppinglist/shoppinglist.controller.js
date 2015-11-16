@@ -30,6 +30,7 @@ exports.create = function(req, res) {
 
 // Updates an existing shoppinglist in the DB.
 exports.update = function(req, res) {
+  console.log('here');
   if(req.body._id) { delete req.body._id; }
   Shoppinglist.findById(req.params.id, function (err, shoppinglist) {
     if (err) { return handleError(res, err); }
