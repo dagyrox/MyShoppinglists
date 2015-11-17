@@ -23,8 +23,8 @@
 			<!--https://docs.angularjs.org/api/ng/directive/ngChecked-->
 			<td><input type="checkbox" ng-checked='master'></td>
 			<td>
-				<md-button aria-label="Remove item" class="md-icon-button delete-btn" ng-click="item.done = !item.done; saveChanges();">
-      				<md-icon style="fill: #000" md-svg-icon="action:{{iconMap[item.done]}}"</md-icon> <!--action:done for checkmark-->
+				<md-button aria-label="Toggle item" class="md-icon-button delete-btn" ng-click="item.done = !item.done; saveChanges();">
+      				<md-icon style="fill: #000" md-svg-icon="{{iconMap[item.done]}}"</md-icon> <!--action:done for checkmark-->
     			</md-button>
 			</td>
 			<td class='strike-{{item.done}}'>{{item.name}}</td>
@@ -32,13 +32,17 @@
 			<td class='strike-{{item.done}}'>{{item.store.name}}</td>
 			<td class='strike-{{item.done}}'>{{item.taxflag}}</td>
 			<td>
-				<md-button aria-label="Remove item" class="md-icon-button delete-btn" ng-click="deleteThing(thing)">
+				<md-button aria-label="Remove item" class="md-icon-button delete-btn" ng-click="deleteItem(item);">
       				<md-icon style="fill: #000" md-svg-icon="action:delete"></md-icon>
     			</md-button>
 			</td>
 		</tr>
 	</tbody>
 </table>
+
+<md-button aria-label="Remove item" class="md-icon-button add-btn" ng-click="addItem();">
+		<md-icon style="fill: #000" md-svg-icon="action:add_shopping_cart"></md-icon>
+</md-button>
 
 <!--md-list >
   <md-list-item ng-repeat='item in thisShoppinglist.items'>

@@ -5,7 +5,7 @@ angular.module('myShoppinglistApp')
   	var queryString = $location.search();
 
   	$scope.thisShoppinglist = '';
-    $scope.iconMap = {"true":"restore", "false":"done"};
+    $scope.iconMap = {"true":"maps:beenhere", "false":"action:done"};
 
   	$http.get('/api/shoppinglist/'+queryString.id).success(
   		function(data){
@@ -22,6 +22,17 @@ angular.module('myShoppinglistApp')
     {
       $http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
       console.log($scope.thisShoppinglist._id);
+    };
+
+    $scope.deleteItem = function(item)
+    {
+      var index = $scope.thisShoppinglist.items.indexOf(item);
+      $scope.thisShoppinglist.items.splice(index, 1);
+    };
+
+    $scope.addItem = function()
+    {
+      alert('popup modal that lets us make a selection and add');
     };
  
     $scope.message = 'Hello';
