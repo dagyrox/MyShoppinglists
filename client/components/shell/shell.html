@@ -56,7 +56,7 @@
           
           <md-menu-divider></md-menu-divider>
           <md-menu-item ng-hide="isLoggedIn()" href="/login">
-            <md-button>
+            <md-button ng-click="logout()">
               <md-icon md-svg-icon="action:input"></md-icon>
               Login
             </md-button>

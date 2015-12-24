@@ -7,4 +7,6 @@ angular.module('myShoppinglistApp')
         templateUrl: 'app/shoppinglist/shoppinglist.html',
         controller: 'ShoppinglistCtrl'
       });
+
+      
   });

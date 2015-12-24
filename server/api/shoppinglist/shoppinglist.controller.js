@@ -22,6 +22,7 @@ exports.show = function(req, res) {
 
 // Creates a new shoppinglist in the DB.
 exports.create = function(req, res) {
+  console.log(req);
   Shoppinglist.create(req.body, function(err, shoppinglist) {
     if(err) { return handleError(res, err); }
     return res.status(201).json(shoppinglist);

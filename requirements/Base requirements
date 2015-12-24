@@ -1,0 +1,19 @@
+(M/S)-EAN stack with Material design (adhere closely to a Google/Android/Chrome design and feel).
+Share lists with anyone by means of username, social network protocols, or email address.
+Control read/write permission of users you shared with, per list.
+Provide current, budget, and projection amounts.
+Pin recurring items, carry over left over items(user option controlled in settings and/or asked when creating new list from current).
+Notify when user has items to be bought from store, when at the stores location.
+Default item display by list (Example: list1:[{item1,...,location},{item2,...,location},etc]}]).
+Optionally display items by location (Example: location1:[{item1,...,list},{item2,...,list},etc]}]).
+In list display, can click on location for location context menu.
+Location context menu options: show on map(opens mapping software with in on location), show all items for this location(switches to items by location display).
+Items can be marked as available, bought, or on hold.
+Items may be markered by swipeing or by selecting
+Actions notify list owner(if action performed by someone else) or requestor(if performed by someone else).
+Notifiction contains item bought, ammount paid(optional), amount left i budget(optional), and person performing the action(if item isnt a gift).
+Default mark is 'available'.
+Gift items are items on a List of Gifts(like registry).
+List of Gifts(LoGs or Regs) are lists whos items dont notify owner of purchaser.
+Items may be added from list of recent items, from scratch(brand new item), or from shared data from other apps.
+Items have avatars with first letter of item name (similar to inbox by gmail) or an icon that may be auto assigned through super smart logic, or chosen by user.
