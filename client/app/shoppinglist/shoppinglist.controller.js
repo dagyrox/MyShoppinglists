@@ -1,72 +1,133 @@
 'use strict';
 
 angular.module('myShoppinglistApp')
-  .controller('ShoppinglistCtrl', function ($scope, $location, $http) {
-  	var queryString = $location.search();
-
-  	$scope.thisShoppinglist = '';
-    $scope.iconMap = {"true":"maps:beenhere", "false":"action:done"};
-
-  	$http.get('/api/shoppinglist/'+queryString.id).success(
-  		function(data){
-  			$scope.thisShoppinglist = data; 
-
-		  	/*$http.get('/api/user/'+$scope.thisShoppinglist.owner).then(
-		  		function(data){
-		  			$scope.listOwner = data; 
-		  		},function(data)
-		  		{});*/
-  		});
-
-    $scope.saveChanges = function ()
+  .controller
+(
+  'ShoppinglistCtrl'
+  , function ($scope, $location, $http, $mdDialog) 
     {
-      $http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
-      console.log($scope.thisShoppinglist._id);
-    };
+      var queryString = $location.search();
 
-    $scope.deleteItem = function(item)
-    {
-      var index = $scope.thisShoppinglist.items.indexOf(item);
-      $scope.thisShoppinglist.items.splice(index, 1);
-      //$http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
-    };
+      $scope.thisShoppinglist = '';
+      $scope.iconMap = {"true":"maps:beenhere", "false":"action:done"};
 
-    $scope.addItem = function()
-    {
-      var data = {
-                    name:"Water-24pk",
-                    description:"24 pack of water",
-                    store : 
-                      {
-                        name:'Target - Odessa1', 
-                        description:'Target in odessa, 54 n veterans',
-                        street:'123 spooner st',
-                        city:'land o lakes',
-                        state:'fl',
-                        geocode:'28.1862503,-82.5445883'
-                      },
-                    cost : 10.00,
-                    taxflag : false,
-                    done:false
-                  };
+      $http.get('/api/shoppinglist/'+queryString.id).success(
+        function(data)
+        {
+          $scope.thisShoppinglist = data; 
 
-      $scope.thisShoppinglist.items.push(data);
-      $http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
-    };
- 
-    $scope.message = 'Hello';
+          /*$http.get('/api/user/'+$scope.thisShoppinglist.owner).then(
+            function(data){
+              $scope.listOwner = data; 
+            },function(data)
+            {});*/
+        }
+      );
 
-      $scope.showAdd = function(ev) {
-    $mdDialog.show({
-      controller: DialogController,
-      template: '<md-dialog aria-label="Mango (Fruit)"> <md-content class="md-padding"> <form name="userForm"> <div layout layout-sm="column"> <md-input-container flex> <label>First Name</label> <input ng-model="user.firstName" placeholder="Placeholder text"> </md-input-container> <md-input-container flex> <label>Last Name</label> <input ng-model="theMax"> </md-input-container> </div> <md-input-container flex> <label>Address</label> <input ng-model="user.address"> </md-input-container> <div layout layout-sm="column"> <md-input-container flex> <label>City</label> <input ng-model="user.city"> </md-input-container> <md-input-container flex> <label>State</label> <input ng-model="user.state"> </md-input-container> <md-input-container flex> <label>Postal Code</label> <input ng-model="user.postalCode"> </md-input-container> </div> <md-input-container flex> <label>Biography</label> <textarea ng-model="user.biography" columns="1" md-maxlength="150"></textarea> </md-input-container> </form> </md-content> <div class="md-actions" layout="row"> <span flex></span> <md-button ng-click="answer(\'not useful\')"> Cancel </md-button> <md-button ng-click="answer(\'useful\')" class="md-primary"> Save </md-button> </div></md-dialog>',
-      targetEvent: ev,
-    })
-    .then(function(answer) {
-      $scope.alert = 'You said the information was "' + answer + '".';
-    }, function() {
-      $scope.alert = 'You cancelled the dialog.';
-    });
-  };
+      $scope.saveChanges = function ()
+      {
+        $http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
+        console.log($scope.thisShoppinglist._id);
+      };
 
-  });
+      $scope.deleteItem = function(item)
+      {
+        var index = $scope.thisShoppinglist.items.indexOf(item);
+        $scope.thisShoppinglist.items.splice(index, 1);
+        //$http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
+      };
+
+      $scope.addItem = function()
+      {
+        var data = 
+        {
+          name:"Water-24pk",
+          description:"24 pack of water",
+          store : 
+            {
+              name:'Target - Odessa1', 
+              description:'Target in odessa, 54 n veterans',
+              street:'123 spooner st',
+              city:'land o lakes',
+              state:'fl',
+              geocode:'28.1862503,-82.5445883'
+            },
+          cost : 10.00,
+          taxflag : false,
+          done:false
+        };
+
+        $scope.thisShoppinglist.items.push(data);
+        $http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
+      };
+
+      $scope.test = function()
+      {
+        alert('hi');
+      }
+
+      //mdDialog
+
+
+    var alert;
+
+    $scope.showAlert = showAlert;
+    $scope.closeAlert = closeAlert;
+    $scope.showGreeting = showCustomGreeting;
+
+    $scope.hasAlert = function() { return !!alert };
+    $scope.userName = $scope.userName || 'Bobby';
+
+    // Dialog #1 - Show simple alert dialog and cache
+    // reference to dialog instance
+
+    function showAlert() {
+      alert = $mdDialog.alert()
+        .title('Attention, ' + $scope.userName)
+        .content('This is an example of how easy dialogs can be!')
+        .ok('Close');
+
+      $mdDialog
+          .show( alert )
+          .finally(function() {
+            alert = undefined;
+          });
+    }
+
+    // Close the specified dialog instance and resolve with 'finished' flag
+    // Normally this is not needed, just use '$mdDialog.hide()' to close
+    // the most recent dialog popup.
+
+    function closeAlert() {
+      $mdDialog.hide( alert, "finished" );
+      alert = undefined;
+    }
+
+    // Dialog #2 - Demonstrate more complex dialogs construction and popup.
+
+    function showCustomGreeting($event) {
+        $mdDialog.show({
+          targetEvent: $event,
+          template:
+            '<md-dialog>' +
+            '  <md-content>Hello {{ employee }}!</md-content>' +
+            '  <div class="md-actions">' +
+            '    <md-button ng-click="closeDialog()">' +
+            '      Close Greeting' +
+            '    </md-button>' +
+            '  </div>' +
+            '</md-dialog>',
+          controller: 'GreetingController',
+          onComplete: afterShowAnimation,
+          locals: { employee: $scope.userName }
+        });
+
+        // When the 'enter' animation finishes...
+
+        function afterShowAnimation(scope, element, options) {
+           // post-show code here: DOM element focus, etc.
+        }
+    }
+
+    }
+);
