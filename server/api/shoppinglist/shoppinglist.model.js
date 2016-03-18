@@ -12,7 +12,7 @@ var ShoppinglistSchema = new Schema({
   owner: String,
   budget: Number,
   shared: Array,
-  items: Array
+  listItems: Array
 });
 
 module.exports = mongoose.model('Shoppinglist', ShoppinglistSchema);
