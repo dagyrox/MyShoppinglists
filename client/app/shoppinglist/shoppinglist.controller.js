@@ -24,6 +24,33 @@ angular.module('myShoppinglistApp')
         }
       );
 
+      $scope.newAdd = function()
+      {
+        var data = 
+        {
+          name:$scope.newItemName,
+          description:$scope.newItemDescription,
+          store : 
+            {
+              name:$scope.newStore, 
+              description:'Target in odessa, 54 n veterans',
+              street:'123 spooner st',
+              city:'land o lakes',
+              state:'fl',
+              geocode:'28.1862503,-82.5445883'
+            },
+          cost : $scope.newCost,
+          taxflag : $scope.newTax,
+          done:false
+        };
+
+        $scope.addItem(data);
+
+        $scope.newLabel = "Added: " + data;
+
+
+      };
+
       $scope.saveChanges = function ()
       {
         $http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
@@ -37,34 +64,11 @@ angular.module('myShoppinglistApp')
         //$http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
       };
 
-      $scope.addItem = function()
+      $scope.addItem = function(data)
       {
-        var data = 
-        {
-          name:"Water-24pk",
-          description:"24 pack of water",
-          store : 
-            {
-              name:'Target - Odessa1', 
-              description:'Target in odessa, 54 n veterans',
-              street:'123 spooner st',
-              city:'land o lakes',
-              state:'fl',
-              geocode:'28.1862503,-82.5445883'
-            },
-          cost : 10.00,
-          taxflag : false,
-          done:false
-        };
-
         $scope.thisShoppinglist.items.push(data);
         $http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
       };
-
-      $scope.test = function()
-      {
-        alert('hi');
-      }
 
       //mdDialog
 
@@ -72,11 +76,8 @@ angular.module('myShoppinglistApp')
     var alert;
 
     $scope.showAlert = showAlert;
-    $scope.closeAlert = closeAlert;
-    $scope.showGreeting = showCustomGreeting;
-
-    $scope.hasAlert = function() { return !!alert };
-    $scope.userName = $scope.userName || 'Bobby';
+    $scope.showDialog = showCustomGreeting;
+    $scope.items=[1,2,3];
 
     // Dialog #1 - Show simple alert dialog and cache
     // reference to dialog instance
@@ -85,7 +86,7 @@ angular.module('myShoppinglistApp')
       alert = $mdDialog.alert()
         .title('Attention, ' + $scope.userName)
         .content('This is an example of how easy dialogs can be!')
-        .ok('Close');
+        .ok('OK');
 
       $mdDialog
           .show( alert )
@@ -94,39 +95,40 @@ angular.module('myShoppinglistApp')
           });
     }
 
-    // Close the specified dialog instance and resolve with 'finished' flag
-    // Normally this is not needed, just use '$mdDialog.hide()' to close
-    // the most recent dialog popup.
-
-    function closeAlert() {
-      $mdDialog.hide( alert, "finished" );
-      alert = undefined;
-    }
-
-    // Dialog #2 - Demonstrate more complex dialogs construction and popup.
 
     function showCustomGreeting($event) {
-        $mdDialog.show({
-          targetEvent: $event,
-          template:
-            '<md-dialog>' +
-            '  <md-content>Hello {{ employee }}!</md-content>' +
-            '  <div class="md-actions">' +
-            '    <md-button ng-click="closeDialog()">' +
-            '      Close Greeting' +
-            '    </md-button>' +
-            '  </div>' +
-            '</md-dialog>',
-          controller: 'GreetingController',
-          onComplete: afterShowAnimation,
-          locals: { employee: $scope.userName }
-        });
+       var parentEl = angular.element(document.body);
+       $mdDialog.show({
+         parent: parentEl,
+         targetEvent: $event,
+         template:
+           '<md-dialog aria-label="Add Item Dialog">' +
+           '  <md-dialog-content>'+
+           '    <md-list>'+
+           '      <md-list-item ng-repeat="item in items">'+
+           '       <p>Number {{item}}</p>' +
+           '      '+
+           '    </md-list-item></md-list>'+
+           '  </md-dialog-content>' +
+           '  <md-dialog-actions>' +
+           '    <md-button ng-click="closeDialog()" class="md-primary">' +
+           '      Close Dialog' +
+           '    </md-button>' +
+           '  </md-dialog-actions>' +
+           '</md-dialog>',
+         locals: {
+           items: $scope.items
+         },
+         controller: DialogController
+      });
 
-        // When the 'enter' animation finishes...
-
-        function afterShowAnimation(scope, element, options) {
-           // post-show code here: DOM element focus, etc.
+      function DialogController($scope, $mdDialog, items) {
+        $scope.items = items;
+        $scope.closeDialog = function() {
+          $mdDialog.hide();
         }
+      }
+
     }
 
     }

@@ -6,6 +6,17 @@
 
 </br>
 
+<!--Working on a working skeleton-->
+<input type='text' placeholder="Item Name" ng-model='newItemName'></input>
+<input type='text' placeholder="Item Description" ng-model='newItemDescription'></input>
+<input type='number' placeholder="$Cost" ng-model='newCost'></input>
+<input type='text' placeholder="StoreID" ng-model='newStoreID'></input>
+<input type='checkbox' ng-model='newTax'>Tax</input>
+<div>
+	<button ng-click='newAdd()'>ADD</button>
+</div>
+<span>{{newLabel}}</span>
+
 <table>
 	<tbody>
 		<!--http://stackoverflow.com/questions/22731145/calculating-sum-of-repeated-elements-in-angularjs-ng-repeat-->
@@ -44,9 +55,14 @@
 		<md-icon style="fill: #000" md-svg-icon="action:add_shopping_cart"></md-icon>
 </md-button-->
 
-<button style='padding-top:5px' class="md-fab md-button md-default-theme" aria-label="Add" ng-click="showAlert()" tabindex="0">
-      <ng-md-icon icon="add" class="ng-scope"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg></ng-md-icon>
-    <div class="md-ripple-container"></div></button>
+<button style='padding-top:5px' class="md-fab md-button md-default-theme" aria-label="Add" ng-click="showDialog()" tabindex="0">
+	<ng-md-icon icon="add" class="ng-scope">
+      	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+      		<path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+  		</svg>
+	</ng-md-icon>
+    <div class="md-ripple-container"></div>
+</button>
 
 <!--md-list >
   <md-list-item ng-repeat='item in thisShoppinglist.items'>
