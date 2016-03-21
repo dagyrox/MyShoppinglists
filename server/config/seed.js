@@ -10,7 +10,6 @@ var Shoppinglist = require('../api/shoppinglist/shoppinglist.model');
 var User = require('../api/user/user.model');
 var Store = require('../api/store/store.model');
 var Item = require('../api/item/item.model');
-var ListItem = require('../api/listitem/listitem.model');
 
 Item.find({}).remove(function(){
   Item.create(
@@ -107,20 +106,7 @@ Shoppinglist.find({}).remove(function() {
     budget: 200.00,
     shared: ["563cc0c1659a1954145dde42"],
     listItems: 
-      [
-        {
-          itemid:'56eb778a8c42f96c35476b25',
-          done:false
-        },
-        {
-          itemid:'56eb790645f7e17829b174c9',
-          done:false
-        },
-        {
-          itemid:'56eb790645f7e17829b174ca',
-          done:false
-        }
-      ]
+      []
   },
   {
     name : 'Bills CC Budget',

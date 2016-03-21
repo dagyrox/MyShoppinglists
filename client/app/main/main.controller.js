@@ -4,7 +4,7 @@ angular.module('myShoppinglistApp')
   .controller('MainCtrl', function ($scope, $location, $http, socket) {
     $scope.awesomeThings = [];
 
-    $http.get('/api/shoppinglist').success(function(awesomeThings) {
+    $http.get('/api/shoppinglists').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
       socket.syncUpdates('shoppinglist', $scope.awesomeThings);
     });
@@ -40,7 +40,7 @@ angular.module('myShoppinglistApp')
     };
 
     $scope.deleteThing = function(thing) {
-      $http.delete('/api/shoppinglist/' + thing._id);
+      $http.delete('/api/shoppinglists/' + thing._id);
     };
 
     $scope.goToShoppinglist = function(gotoid)

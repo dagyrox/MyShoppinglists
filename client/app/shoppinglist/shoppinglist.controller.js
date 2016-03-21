@@ -6,85 +6,101 @@ angular.module('myShoppinglistApp')
   'ShoppinglistCtrl'
   , function ($scope, $location, $http, $mdDialog) 
     {
-      var queryString = $location.search();
 
-      $scope.thisShoppinglist = '';
-      $scope.iconMap = {"true":"maps:beenhere", "false":"action:done"};
+      var vm = this;
+      vm.queryString = $location.search();
 
-      $http.get('/api/shoppinglist/'+queryString.id).success(
+      vm.thisShoppinglist = '';
+      vm.iconMap = {"true":"maps:beenhere", "false":"action:done"};
+
+      $http.get('/api/shoppinglists/'+vm.queryString.id).success(
         function(data)
         {
-          $scope.thisShoppinglist = data; 
+          vm.thisShoppinglist = data; 
 
-          /*$http.get('/api/user/'+$scope.thisShoppinglist.owner).then(
+          /*$http.get('/api/user/'+vm.thisShoppinglist.owner).then(
             function(data){
-              $scope.listOwner = data; 
+              vm.listOwner = data; 
             },function(data)
             {});*/
         }
       );
 
-      $scope.newAdd = function()
+      $http.get('/api/stores').success(
+        function(data)
+        {
+          vm.allStores = data; 
+        }
+      );
+
+      $http.get('/api/items').success(
+        function(data)
+        {
+          vm.allItems = data; 
+        }
+      );
+
+      vm.newAdd = function()
       {
         var data = 
         {
-          name:$scope.newItemName,
-          description:$scope.newItemDescription,
+          name:vm.selectedItem.name,
+          description:vm.selectedItem.description,
           store : 
             {
-              name:$scope.newStore, 
-              description:'Target in odessa, 54 n veterans',
-              street:'123 spooner st',
-              city:'land o lakes',
-              state:'fl',
-              geocode:'28.1862503,-82.5445883'
+              name:vm.selectedStore.name, 
+              description:vm.selectedStore.description,
+              street:vm.selectedStore.street,
+              city:vm.selectedStore.city,
+              state:vm.selectedStore.state,
+              geocode:vm.selectedStore.geocode,
             },
-          cost : $scope.newCost,
-          taxflag : $scope.newTax,
+          cost : vm.selectedItem.cost,
+          taxflag : vm.selectedItem.taxflag,
           done:false
         };
 
-        $scope.addItem(data);
+        vm.addItem(data);
 
-        $scope.newLabel = "Added: " + data;
+        vm.newLabel = "Added: " + data;
 
 
       };
 
-      $scope.saveChanges = function ()
+      vm.saveChanges = function ()
       {
-        $http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
-        console.log($scope.thisShoppinglist._id);
+        $http.put('/api/shoppinglists/'+vm.thisShoppinglist._id, vm.thisShoppinglist);
+        console.log(vm.thisShoppinglist._id);
       };
 
-      $scope.deleteItem = function(item)
+      vm.deleteItem = function(item)
       {
-        var index = $scope.thisShoppinglist.items.indexOf(item);
-        $scope.thisShoppinglist.items.splice(index, 1);
-        //$http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
+        var index = vm.thisShoppinglist.listItems.indexOf(item);
+        vm.thisShoppinglist.listItems.splice(index, 1);
+        //$http.put('/api/shoppinglists/'+vm.thisShoppinglist._id, vm.thisShoppinglist);
       };
 
-      $scope.addItem = function(data)
+      vm.addItem = function(data)
       {
-        $scope.thisShoppinglist.items.push(data);
-        $http.put('/api/shoppinglist/'+$scope.thisShoppinglist._id, $scope.thisShoppinglist);
+        vm.thisShoppinglist.listItems.push(data);
+        $http.put('/api/shoppinglists/'+vm.thisShoppinglist._id, vm.thisShoppinglist);
       };
 
       //mdDialog
 
-
+/*
     var alert;
 
-    $scope.showAlert = showAlert;
-    $scope.showDialog = showCustomGreeting;
-    $scope.items=[1,2,3];
+    vm.showAlert = showAlert;
+    vm.showDialog = showCustomGreeting;
+    vm.listItems=[1,2,3];
 
     // Dialog #1 - Show simple alert dialog and cache
     // reference to dialog instance
 
     function showAlert() {
       alert = $mdDialog.alert()
-        .title('Attention, ' + $scope.userName)
+        .title('Attention, ' + vm.userName)
         .content('This is an example of how easy dialogs can be!')
         .ok('OK');
 
@@ -117,19 +133,19 @@ angular.module('myShoppinglistApp')
            '  </md-dialog-actions>' +
            '</md-dialog>',
          locals: {
-           items: $scope.items
+           items: vm.listItems
          },
          controller: DialogController
       });
 
       function DialogController($scope, $mdDialog, items) {
-        $scope.items = items;
-        $scope.closeDialog = function() {
+        vm.listItems = items;
+        vm.closeDialog = function() {
           $mdDialog.hide();
         }
       }
 
-    }
+    }*/
 
     }
 );

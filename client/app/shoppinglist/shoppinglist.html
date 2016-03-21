@@ -1,28 +1,31 @@
-<!--div ng-include="'components/shell/shell.html'"></div-->
-<p>Description: {{thisShoppinglist.info}}</p>
-<p>Owner: {{thisShoppinglist.owner}}</p>
-<p>Shared with: {{thisShoppinglist.shared}}</p>
-<p>Budget: {{thisShoppinglist.budget}}</p>
+<div ng-include="'components/shell/shell.html'"></div>
+<div ng-controller="ShoppinglistCtrl as shoppinglist">
+<p>Description: {{shoppinglist.thisShoppinglist.info}}</p>
+<p>Owner: {{shoppinglist.thisShoppinglist.owner}}</p>
+<p>Shared with: {{shoppinglist.thisShoppinglist.shared}}</p>
+<p>Budget: {{shoppinglist.thisShoppinglist.budget}}</p>
 
 </br>
 
 <!--Working on a working skeleton-->
-<input type='text' placeholder="Item Name" ng-model='newItemName'></input>
-<input type='text' placeholder="Item Description" ng-model='newItemDescription'></input>
-<input type='number' placeholder="$Cost" ng-model='newCost'></input>
-<input type='text' placeholder="StoreID" ng-model='newStoreID'></input>
+<select ng-model='shoppinglist.selectedItem' ng-options="item.name for item in shoppinglist.allItems">
+	<option value="" disabled>Choose Item</option>
+</select>
+<select ng-model='shoppinglist.selectedStore' ng-options="store.name for store in shoppinglist.allStores">
+	<option value="" disabled>Choose Store</option>
+</select>
 <input type='checkbox' ng-model='newTax'>Tax</input>
 <div>
-	<button ng-click='newAdd()'>ADD</button>
+	<button ng-click='shoppinglist.newAdd()'>ADD</button>
 </div>
-<span>{{newLabel}}</span>
+
 
 <table>
 	<tbody>
 		<!--http://stackoverflow.com/questions/22731145/calculating-sum-of-repeated-elements-in-angularjs-ng-repeat-->
-		<caption>{{thisShoppinglist.name}}</caption>
+		<caption>{{shoppinglist.thisShoppinglist.name}}</caption>
 		<tr>
-			<td><input ng-model='master' type='checkbox'></td>
+			<td><input ng-model='shoppinglist.masterCheck' type='checkbox'></td>
 			<td>Done</td>
 			<td>Item</td>
 			<td>Cost</td>
@@ -30,20 +33,20 @@
 			<td>Tax?</td>
 			<td>Del</td>
 		</tr>
-		<tr ng-repeat='item in thisShoppinglist.items' >
+		<tr ng-repeat='item in shoppinglist.thisShoppinglist.listItems' >
 			<!--https://docs.angularjs.org/api/ng/directive/ngChecked-->
-			<td><input type="checkbox" ng-checked='master'></td>
+			<td><input type="checkbox" ng-checked='shoppinglist.masterCheck'></td>
 			<td>
-				<md-button aria-label="Toggle item" class="md-icon-button delete-btn" ng-click="item.done = !item.done; saveChanges();">
-      				<md-icon style="fill: #000" md-svg-icon="{{iconMap[item.done]}}"</md-icon> <!--action:done for checkmark-->
+				<md-button aria-label="Toggle item" class="md-icon-button delete-btn" ng-click="item.done = !item.done; shoppinglist.saveChanges();">
+      				<md-icon style="fill: #000" md-svg-icon="{{shoppinglist.iconMap[item.done]}}"></md-icon> <!--action:done for checkmark-->
     			</md-button>
 			</td>
 			<td class='strike-{{item.done}}'>{{item.name}}</td>
 			<td class='strike-{{item.done}}'>{{item.cost}}</td>
 			<td class='strike-{{item.done}}'>{{item.store.name}}</td>
-			<td class='strike-{{item.done}}'>{{item.taxflag}}</td>
+			<td class='strike-{{item.done}}'>{{item.taxflag ? true : false}}</td>
 			<td>
-				<md-button aria-label="Remove item" class="md-icon-button delete-btn" ng-click="deleteItem(item);">
+				<md-button aria-label="Remove item" class="md-icon-button delete-btn" ng-click="shoppinglist.deleteItem(item);">
       				<md-icon style="fill: #000" md-svg-icon="action:delete"></md-icon>
     			</md-button>
 			</td>
@@ -55,17 +58,18 @@
 		<md-icon style="fill: #000" md-svg-icon="action:add_shopping_cart"></md-icon>
 </md-button-->
 
-<button style='padding-top:5px' class="md-fab md-button md-default-theme" aria-label="Add" ng-click="showDialog()" tabindex="0">
+<!--button style='padding-top:5px' class="md-fab md-button md-default-theme" aria-label="Add" ng-click="showDialog()" tabindex="0">
 	<ng-md-icon icon="add" class="ng-scope">
       	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
       		<path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
   		</svg>
 	</ng-md-icon>
     <div class="md-ripple-container"></div>
-</button>
+</button-->
 
 <!--md-list >
   <md-list-item ng-repeat='item in thisShoppinglist.items'>
   	<p> - {{item.description}}	for {{item.cost}} at {{item.store}} - Taxed: {{item.taxflag}}</p>
   </md-list-item>
 </md-list-->
+</div>
