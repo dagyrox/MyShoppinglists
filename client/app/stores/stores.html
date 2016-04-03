@@ -1,15 +1,15 @@
 <div ng-include="'components/shell/shell.html'"></div>
 <div ng-controller="StoresCtrl as stores">
 	<div class="col-md-12">
-		<input class="col-md-3" type='text' placeholder='Name' model='stores.newName'></input>
-		<input class="col-md-3" type='text' placeholder='Description' model='stores.newDescription'></input>
-		<input class="col-md-3" type='text' placeholder='Street' model='stores.newStreet'></input>
-		<input class="col-md-3" type='text' placeholder='City' model='stores.newCity'></input>
-		<input class="col-md-3" type='text' placeholder='State' model='stores.newState'></input>
-		<input class="col-md-3" type='text' placeholder='Geocode' model='stores.newGeocode'></input>
+		<input class="col-md-3" type='text' placeholder='Name' ng-model='stores.newName'></input>
+		<input class="col-md-3" type='text' placeholder='Description' ng-model='stores.newDescription'></input>
+		<input class="col-md-3" type='text' placeholder='Street' ng-model='stores.newStreet'></input>
+		<input class="col-md-3" type='text' placeholder='City' ng-model='stores.newCity'></input>
+		<input class="col-md-3" type='text' placeholder='State' ng-model='stores.newState'></input>
+		<input class="col-md-3" type='text' placeholder='Geocode' ng-model='stores.newGeocode'></input>
 	</div>
 
 	<div>
-		<md-button class='md-raised' class='col-md-6' ng-click='stores.NewAdd();'>Add</md-button>
+		<md-button class='md-raised' class='col-md-6' ng-click='stores.NewAdd(stores.newName);'>Add</md-button>
 	</div>
 </div>
