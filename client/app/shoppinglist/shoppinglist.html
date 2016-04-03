@@ -1,58 +1,59 @@
 <div ng-include="'components/shell/shell.html'"></div>
 <div ng-controller="ShoppinglistCtrl as shoppinglist">
-<p>Description: {{shoppinglist.thisShoppinglist.info}}</p>
-<p>Owner: {{shoppinglist.thisShoppinglist.owner}}</p>
-<p>Shared with: {{shoppinglist.thisShoppinglist.shared}}</p>
-<p>Budget: {{shoppinglist.thisShoppinglist.budget}}</p>
+	<p>Name: {{shoppinglist.thisShoppinglist.name}}</p>
+	<p>Description: {{shoppinglist.thisShoppinglist.info}}</p>
+	<p>Owner: {{shoppinglist.thisShoppinglist.owner}}</p>
+	<p>Shared with: {{shoppinglist.thisShoppinglist.shared}}</p>
+	<p>Budget: {{shoppinglist.thisShoppinglist.budget}}</p>
 
-</br>
+	</br>
 
-<!--Working on a working skeleton-->
-<select ng-model='shoppinglist.selectedItem' ng-options="item.name for item in shoppinglist.allItems">
-	<option value="" disabled>Choose Item</option>
-</select>
-<select ng-model='shoppinglist.selectedStore' ng-options="store.name for store in shoppinglist.allStores">
-	<option value="" disabled>Choose Store</option>
-</select>
-<input type='checkbox' ng-model='newTax'>Tax</input>
-<div>
-	<button ng-click='shoppinglist.newAdd()'>ADD</button>
-</div>
+	<!--Working on a working skeleton-->
+	<select ng-model='shoppinglist.selectedItem' ng-options="item.name for item in shoppinglist.allItems">
+		<option value="" disabled>Choose Item</option>
+	</select>
+	<select ng-model='shoppinglist.selectedStore' ng-options="store.name for store in shoppinglist.allStores">
+		<option value="" disabled>Choose Store</option>
+	</select>
+	<input type='checkbox' ng-model='shoppinglist.newTax'>Tax</input>
+	<div>
+		<button ng-click='shoppinglist.newAdd()'>ADD</button>
+	</div>
 
 
-<table>
-	<tbody>
-		<!--http://stackoverflow.com/questions/22731145/calculating-sum-of-repeated-elements-in-angularjs-ng-repeat-->
-		<caption>{{shoppinglist.thisShoppinglist.name}}</caption>
-		<tr>
-			<td><input ng-model='shoppinglist.masterCheck' type='checkbox'></td>
-			<td>Done</td>
-			<td>Item</td>
-			<td>Cost</td>
-			<td>Store</td>
-			<td>Tax?</td>
-			<td>Del</td>
-		</tr>
-		<tr ng-repeat='item in shoppinglist.thisShoppinglist.listItems' >
-			<!--https://docs.angularjs.org/api/ng/directive/ngChecked-->
-			<td><input type="checkbox" ng-checked='shoppinglist.masterCheck'></td>
-			<td>
-				<md-button aria-label="Toggle item" class="md-icon-button delete-btn" ng-click="item.done = !item.done; shoppinglist.saveChanges();">
-      				<md-icon style="fill: #000" md-svg-icon="{{shoppinglist.iconMap[item.done]}}"></md-icon> <!--action:done for checkmark-->
-    			</md-button>
-			</td>
-			<td class='strike-{{item.done}}'>{{item.name}}</td>
-			<td class='strike-{{item.done}}'>{{item.cost}}</td>
-			<td class='strike-{{item.done}}'>{{item.store.name}}</td>
-			<td class='strike-{{item.done}}'>{{item.taxflag ? true : false}}</td>
-			<td>
-				<md-button aria-label="Remove item" class="md-icon-button delete-btn" ng-click="shoppinglist.deleteItem(item);">
-      				<md-icon style="fill: #000" md-svg-icon="action:delete"></md-icon>
-    			</md-button>
-			</td>
-		</tr>
-	</tbody>
-</table>
+	<table>
+		<tbody>
+			<!--http://stackoverflow.com/questions/22731145/calculating-sum-of-repeated-elements-in-angularjs-ng-repeat-->
+			<caption>{{shoppinglist.thisShoppinglist.name}}</caption>
+			<tr>
+				<td><input ng-model='shoppinglist.masterCheck' type='checkbox'></td>
+				<td>Done</td>
+				<td>Item</td>
+				<td>Cost</td>
+				<td>Store</td>
+				<td>Tax?</td>
+				<td>Del</td>
+			</tr>
+			<tr ng-repeat='item in shoppinglist.thisShoppinglist.listItems' >
+				<!--https://docs.angularjs.org/api/ng/directive/ngChecked-->
+				<td><input type="checkbox" ng-checked='shoppinglist.masterCheck'></td>
+				<td>
+					<md-button aria-label="Toggle item" class="md-icon-button delete-btn" ng-click="item.done = !item.done; shoppinglist.saveChanges();">
+	      				<md-icon style="fill: #000" md-svg-icon="{{shoppinglist.iconMap[item.done]}}"></md-icon> <!--action:done for checkmark-->
+	    			</md-button>
+				</td>
+				<td class='strike-{{item.done}}'>{{item.name}}</td>
+				<td class='strike-{{item.done}}'>{{item.cost}}</td>
+				<td class='strike-{{item.done}}'>{{item.store.name}}</td>
+				<td class='strike-{{item.done}}'>{{item.taxflag ? true : false}}</td>
+				<td>
+					<md-button aria-label="Remove item" class="md-icon-button delete-btn" ng-click="shoppinglist.deleteItem(item);">
+	      				<md-icon style="fill: #000" md-svg-icon="action:delete"></md-icon>
+	    			</md-button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 
 <!--md-button aria-label="Remove item" class="md-icon-button add-btn" ng-click="addItem();">
 		<md-icon style="fill: #000" md-svg-icon="action:add_shopping_cart"></md-icon>

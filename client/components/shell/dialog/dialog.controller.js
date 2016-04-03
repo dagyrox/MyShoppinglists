@@ -11,7 +11,7 @@ angular.module('myShoppinglistApp')
     if($scope.newThing === '') {
       return;
     }
-    $http.post('/api/things', { name: $scope.newThing });
+    $http.post('/api/shoppinglists', { name: $scope.newThing, info: $scope.newDescription, budget: $scope.newBudget });
     $scope.newThing = '';
     $mdDialog.hide();
   };

@@ -1,15 +1,30 @@
 <md-dialog aria-label="List dialog">
   <md-dialog-content>
     <h2 class="md-title">
-      Set a description for the new thing
+      Add a new shopping list.
     </h2>
     <form name="projectForm">
       <md-input-container>
-        <label>Description</label>
-        <input md-maxlength="30" required name="description" ng-model="newThing">
+        <label>Name...</label>
+        <input md-maxlength="15" required name="name" ng-model="newThing">
+        <div ng-messages="projectForm.name.$error">
+          <div ng-message="required">This is required.</div>
+          <div ng-message="md-maxlength">The name has to be less than 15 characters long.</div>
+        </div>
+      </md-input-container>
+      <md-input-container>
+        <label>Description...</label>
+        <input md-maxlength="30" required name="description" ng-model="newDescription">
         <div ng-messages="projectForm.description.$error">
           <div ng-message="required">This is required.</div>
-          <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+          <div ng-message="md-maxlength">The description has to be less than 30 characters long.</div>
+        </div>
+      </md-input-container>
+      <md-input-container>
+        <label>Budget...</label>
+        <input md-maxlength="10" name="budget" ng-model="newBudget">
+        <div ng-messages="projectForm.budget.$error">
+          <div ng-message="md-maxlength">Hey big baller, 1 Million is your limit.</div>
         </div>
       </md-input-container>
     </form>

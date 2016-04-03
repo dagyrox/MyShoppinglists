@@ -2,18 +2,29 @@
   <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
     <md-toolbar class="md-tall md-accent">
       
-      <div ng-if="isLoggedIn()" layout="column" layout-padding class="profile-container">
+      <div ng-if="!isLoggedIn()" layout="column" layout-padding class="profile-container">
         <div flex></div>
         <div layout-padding layout="column">
-          <div class="profile-name">{{ getCurrentUser().name }}</div>
-          <div class="profile-email">{{ getCurrentUser().email }}</div>
+          <div class="profile-name">{{getCurrentUser().name}}</div>
+          <div class="profile-email">{{getCurrentUser().email}}</div>
         </div>
       </div>
-      
     </md-toolbar>
+    
     <md-content layout-padding>
-
+      <ul>
+        <li>
+          <a class='md-button md-ink-ripple active' ng-href='/'>my shopping lists</a>
+        </li>
+        <li>
+          <a class='md-button md-ink-ripple active' ng-href='/items'>my items</a>
+        </li>
+        <li>
+          <a class='md-button md-ink-ripple active' ng-href='/stores'>my stores</a>
+        </li>
+      </ul>
     </md-content>
+
   </md-sidenav>
   <md-toolbar>
     <div class="md-toolbar-tools">

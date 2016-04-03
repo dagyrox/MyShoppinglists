@@ -56,7 +56,7 @@ angular.module('myShoppinglistApp')
               geocode:vm.selectedStore.geocode,
             },
           cost : vm.selectedItem.cost,
-          taxflag : vm.selectedItem.taxflag,
+          taxflag : vm.newTax,
           done:false
         };
 
