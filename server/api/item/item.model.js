@@ -6,9 +6,8 @@ var mongoose = require('mongoose'),
 var ItemSchema = new Schema({
   name: String,
   description: String,
-  store: String,
-  cost: Number,
-  taxable: Boolean,
+  category: String,
+  size: String,
   active: Boolean
 });
 

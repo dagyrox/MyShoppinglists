@@ -8,19 +8,30 @@ angular.module('myShoppinglistApp')
 	{
 	  	var vm = this;
 
-	  	vm.NewAdd = NewAdd;
-	  	vm.AddSore = AddStore;
+	  	vm.allStores = [];
 
+	  	vm.NewAdd = NewAdd;
+	  	vm.AddStore = AddStore;
+
+	  	Init();
+
+	  	function Init()
+	  	{
+	  		GetAllStores();
+	  	}
 
 	  	function NewAdd()
 	  	{
-	  		var newStore = {name: 	vm.newName,
-							info: 	vm.newDescription,
-							street: 	vm.newStreet,
-							city: 	vm.newCity,
-							state: 	vm.newState,
-							geocode: vm.newGeocode,
-							active: 	true};
+	  		var newStore = 
+	  			{
+	  				name: 	vm.newName,
+					info: 	vm.newDescription,
+					street: 	vm.newStreet,
+					city: 	vm.newCity,
+					state: 	vm.newState,
+					geocode: vm.newGeocode,
+					active: 	true
+				};
 
 			AddStore(newStore);
 
@@ -34,8 +45,14 @@ angular.module('myShoppinglistApp')
 
 		function AddStore(data)
 		{
-			$http.post('/api/stores', data);
+			$http.post('/api/stores', data).success(function(){alert('store added'); GetAllStores();});
 		};
 
+		function GetAllStores ()
+		{
+		    $http.get('/api/stores').success(function(allStores) {
+		    	vm.allStores = allStores;
+		    });
+		}
   	}
 );

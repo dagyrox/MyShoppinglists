@@ -10,6 +10,26 @@
 	</div>
 
 	<div>
-		<md-button class='md-raised' class='col-md-6' ng-click='stores.NewAdd(stores.newName);'>Add</md-button>
+		<md-button class='md-raised' class='col-md-6' ng-click='stores.NewAdd();'>Add</md-button>
 	</div>
+
+	<md-grid-list class="items-list" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="8" md-row-height-gt-md="1:1" md-row-height="1:1" md-gutter="8px" md-gutter-gt-sm="4px">
+	  	<md-grid-tile ng-repeat="store in stores.allStores" ng-class="red" md-rowspan="1" md-colspan="1" md-colspan-sm="1">
+
+		    <md-grid-tile-header>
+				<md-icon class="md-avatar" md-svg-icon="avatar:svg-{{ ($index + 1) % 11 }}"></md-icon>
+				<h3 style='display:inline'>{{store.name}}</h3>
+		    </md-grid-tile-header>
+
+	    	<md-grid-body>
+				<div>Description: {{store.info}}</div>
+		    </md-grid-body>
+
+		    <md-button aria-label="Remove store" class="md-icon-button delete-btn" ng-click="deleteStore(store)">
+		      	<md-icon style="fill: #fff" md-svg-icon="action:delete"></md-icon>
+		    </md-button>
+		    
+	    </md-grid-tile>
+	</md-grid-list>
+
 </div>
