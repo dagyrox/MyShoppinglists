@@ -1,31 +1,35 @@
 <div ng-include="'components/shell/shell.html'"></div>
 <div ng-controller="StoresCtrl as stores">
 	<div class="col-md-12">
-		<input class="col-md-3" type='text' placeholder='Name' ng-model='stores.newName'></input>
-		<input class="col-md-3" type='text' placeholder='Description' ng-model='stores.newDescription'></input>
-		<input class="col-md-3" type='text' placeholder='Street' ng-model='stores.newStreet'></input>
-		<input class="col-md-3" type='text' placeholder='City' ng-model='stores.newCity'></input>
-		<input class="col-md-3" type='text' placeholder='State' ng-model='stores.newState'></input>
-		<input class="col-md-3" type='text' placeholder='Geocode' ng-model='stores.newGeocode'></input>
+		<input class="col-md-3" type='text' placeholder='Name' ng-model='stores.selectedStore.name'></input>
+		<input class="col-md-3" type='text' placeholder='Description' ng-model='stores.selectedStore.info'></input>
+		<input class="col-md-3" type='text' placeholder='Street' ng-model='stores.selectedStore.street'></input>
+		<input class="col-md-3" type='text' placeholder='City' ng-model='stores.selectedStore.city'></input>
+		<input class="col-md-3" type='text' placeholder='State' ng-model='stores.selectedStore.state'></input>
+		<input class="col-md-3" type='text' placeholder='Geocode' ng-model='stores.selectedStore.geocode'></input>
 	</div>
 
 	<div>
-		<md-button class='md-raised' class='col-md-6' ng-click='stores.NewAdd();'>Add</md-button>
+		<md-button class='md-raised' class='col-md-6' ng-click='stores.Add_Update();'>{{stores.updateMode ? 'Update' : 'Add'}}</md-button>
 	</div>
 
 	<md-grid-list class="items-list" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="8" md-row-height-gt-md="1:1" md-row-height="1:1" md-gutter="8px" md-gutter-gt-sm="4px">
-	  	<md-grid-tile ng-repeat="store in stores.allStores" ng-class="red" md-rowspan="1" md-colspan="1" md-colspan-sm="1">
+	  	<md-grid-tile ng-repeat="store in stores.allStores" class="lightgrey" md-rowspan="1" md-colspan="1" md-colspan-sm="1">
 
-		    <md-grid-tile-header>
+		    <md-grid-tile-header ng-click='stores.SelectStore(store);'>
 				<md-icon class="md-avatar" md-svg-icon="avatar:svg-{{ ($index + 1) % 11 }}"></md-icon>
 				<h3 style='display:inline'>{{store.name}}</h3>
 		    </md-grid-tile-header>
 
-	    	<md-grid-body>
+	    	<md-grid-body ng-click='stores.SelectStore(store);'>
 				<div>Description: {{store.info}}</div>
 		    </md-grid-body>
 
-		    <md-button aria-label="Remove store" class="md-icon-button delete-btn" ng-click="deleteStore(store)">
+		    <!-- <md-button aria-label="Update store" class="md-icon-button update-btn" ng-click="stores.UpdateStore(store)">
+		      	<md-icon style="fill: #fff" md-svg-icon="action:delete"></md-icon>
+		    </md-button> -->
+
+		    <md-button aria-label="Remove store" class="md-icon-button delete-btn" ng-click="stores.DeleteStore(store)">
 		      	<md-icon style="fill: #fff" md-svg-icon="action:delete"></md-icon>
 		    </md-button>
 		    

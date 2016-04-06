@@ -1,0 +1,99 @@
+.stores-list {
+ margin: 8px;
+}
+
+.stores-list md-grid-tile {
+ transition: all 400ms ease-out 50ms;
+}
+
+.stores-list .avatar-icon {
+  width: 50%;
+  height: 50%; }
+
+.stores-list .avatar-icon svg {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%; }
+
+.stores-list .s64 {
+  font-size: 64px; }
+
+.stores-list .s32 {
+  font-size: 48px; }
+
+.stores-list .avatar-icon.fa {
+  display: block;
+  padding-left: 0; }
+
+.stores-list .avatar-icon.s32 span {
+  padding-left: 8px; }
+
+.stores-list md-grid-list {
+  margin: 8px; }
+
+.stores-list .gray {
+  background: #f5f5f5; }
+
+.stores-list .green {
+  background: #b9f6ca; }
+
+.stores-list .yellow {
+  background: #ffff8d; }
+
+.stores-list .blue {
+  background: #84ffff; }
+
+.stores-list .darkBlue {
+  background: #80d8ff; }
+
+.stores-list .deepBlue {
+  background: #448aff; }
+
+.stores-list .purple {
+  background: #b388ff; }
+
+.stores-list .lightPurple {
+  background: #8c9eff; }
+
+.stores-list .red {
+  background: #ff8a80; }
+
+.stores-list .pink {
+  background: #ff80ab; }
+
+.lightgrey
+{
+  background: lightgrey;
+}
+
+.stores-list md-grid-tile .avatar-icon {
+  padding-bottom: 32px; }
+
+.stores-list md-grid-tile md-grid-tile-footer {
+  background: rgba(0, 0, 0, 0.68);
+  height: 48px; }
+
+.stores-list md-grid-tile-footer figcaption {
+  width: 100%; }
+
+.stores-list md-grid-tile-footer figcaption h3 {
+  margin: 0;
+  font-weight: 700;
+  text-align: left;
+  margin-left: 16px;
+  margin-right: 64px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.stores-list .delete-btn {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+md-grid-tile-header
+{
+  padding-left: 15px;  
+}

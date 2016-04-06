@@ -9,9 +9,12 @@ angular.module('myShoppinglistApp')
 	  	var vm = this;
 
 	  	vm.allStores = [];
+	  	vm.selectedStore = {};
+	  	vm.updateMode = false;
 
-	  	vm.NewAdd = NewAdd;
-	  	vm.AddStore = AddStore;
+	  	vm.Add_Update = Add_Update;
+	  	vm.SelectStore = SelectStore;
+	  	vm.DeleteStore = DeleteStore;
 
 	  	Init();
 
@@ -20,39 +23,69 @@ angular.module('myShoppinglistApp')
 	  		GetAllStores();
 	  	}
 
-	  	function NewAdd()
+	  	function Add_Update()
 	  	{
-	  		var newStore = 
-	  			{
-	  				name: 	vm.newName,
-					info: 	vm.newDescription,
-					street: 	vm.newStreet,
-					city: 	vm.newCity,
-					state: 	vm.newState,
-					geocode: vm.newGeocode,
-					active: 	true
-				};
+			vm.updateMode ? 
+				UpdateStore(vm.selectedStore) : 
+				AddStore(vm.selectedStore);
 
-			AddStore(newStore);
-
-			vm.newName = "";
-			vm.newDescription = "";
-			vm.newStreet = "";
-			vm.newCity = "";
-			vm.newState = "";
-			vm.newGeocode = "";
+			vm.selectedStore = {};
 	  	}
 
-		function AddStore(data)
+		function AddStore(store)
 		{
-			$http.post('/api/stores', data).success(function(){alert('store added'); GetAllStores();});
+			$http.post('/api/stores', store)
+			.success
+				(
+					function()
+					{
+						GetAllStores();
+					}
+				);
+		};
+
+		function UpdateStore(store)
+		{
+			$http.put('/api/stores/' + store._id, store)
+			.success
+				(
+					function()
+					{
+						GetAllStores();
+						vm.updateMode = false;
+					}
+				);
 		};
 
 		function GetAllStores ()
 		{
-		    $http.get('/api/stores').success(function(allStores) {
-		    	vm.allStores = allStores;
-		    });
+		    $http.get('/api/stores')
+		    .success
+		    	(
+		    		function(allStores) 
+		    		{
+		    			vm.allStores = allStores;
+		    		}
+	    		);
+		}
+
+		function SelectStore(store)
+		{
+			vm.selectedStore = store;
+
+			vm.updateMode = true;
+		}
+
+		function DeleteStore(store)
+		{
+			$http.delete('/api/stores/' + store._id)
+			.success
+				(
+					function()
+					{
+						GetAllStores();
+					}
+				);
 		}
   	}
 );
