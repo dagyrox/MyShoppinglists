@@ -2,17 +2,39 @@
 
 angular.module('myShoppinglistApp')
   .controller('DialogController', function ($scope, $mdDialog, $http) {
-  $scope.closeDialog = function() {
+
+    var vm = this;
+
+    //model
+    vm.list = {active:true};
+    vm.list.name = '';
+    vm.list.info = '';
+    vm.list.budget = 0;
+
+    vm.CloseDialog = CloseDialog;
+    vm.AddList = AddList;
+
+  function CloseDialog() 
+  {
     $mdDialog.hide();
-  };
+  }
 
   
-  $scope.addThing = function() {
-    if($scope.newThing === '') {
+  function AddList() 
+  {
+    if(Object.keys(vm.list).length != 4) 
+    {
       return;
     }
-    $http.post('/api/shoppinglists', { name: $scope.newThing, info: $scope.newDescription, budget: $scope.newBudget });
-    $scope.newThing = '';
+
+    $http.post
+    (
+      '/api/shoppinglists', 
+      vm.list
+    );
+
+    vm.list = {active:true};
     $mdDialog.hide();
-  };
+  }
+
 });

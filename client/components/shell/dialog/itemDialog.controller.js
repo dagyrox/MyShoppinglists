@@ -4,20 +4,40 @@ angular.module('myShoppinglistApp')
   .controller('ItemDialogController', function ($scope, $mdDialog, $http) {
 
     var vm = this;
+
+    //model
+    vm.item = {active:true};
+    vm.item.name = '';
+    vm.item.description= '';
+    vm.item.category = '';
+    vm.item.size = '';
   
+    //functions
     vm.CloseDialog = CloseDialog;
+    vm.AddItem = AddItem;
 
-    function CloseDialog() {
+    function CloseDialog() 
+    {
       $mdDialog.hide();
-    };
+    }
 
   
-  $scope.addThing = function() {
-    if($scope.newItem === '') {
-      return;
+    function AddItem() 
+    {
+      if(vm.item == null) 
+      {
+        return;
+      }
+
+      $http.post
+      (
+        '/api/items',
+        vm.item        
+      );
+
+      vm.item = {active:true};
+
+      $mdDialog.hide();
     }
-    $http.post('/api/items', { name: $scope.newThing, info: $scope.newDescription, budget: $scope.newBudget });
-    $scope.newThing = '';
-    $mdDialog.hide();
-  };
+    
 });

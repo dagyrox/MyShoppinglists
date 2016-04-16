@@ -3,7 +3,11 @@
 angular.module('myShoppinglistApp')
   .controller('ShellCtrl', function ($mdSidenav, $mdDialog, $scope, $location, Auth) {
 
-    
+    var vm = this;
+    vm.path = $location.path();
+
+    // vm.ShowAddDialog = ShowAddDialog;
+
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
@@ -49,13 +53,37 @@ angular.module('myShoppinglistApp')
       // This never happens.
     };
 
-    $scope.showAddDialog = function($event) {
+    $scope.ShowAddDialog = function($event) {
       var parentEl = angular.element(document.body);
+      var templateUrl = '';
+      var controller = '';
+      var controllerAs = '';
+
+      switch(vm.path)
+      {
+        case '/':
+          {
+            templateUrl = 'components/shell/dialog/dialog.html';
+            controller = 'DialogController';
+            controllerAs = 'dialog';
+          }
+          break;
+        case '/items':
+          {
+            templateUrl = 'components/shell/dialog/itemDialog.html';
+            controller = 'ItemDialogController';
+            controllerAs = 'itemDialog';
+          }
+          break;
+      }
+
       $mdDialog.show({
         parent: parentEl,
         targetEvent: $event,
-        templateUrl: 'components/shell/dialog/dialog.html',
-        controller: 'DialogController'
+        templateUrl: templateUrl,
+        controller: controller,
+        controllerAs: controllerAs
       });
+
     };
   });

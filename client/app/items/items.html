@@ -1,6 +1,6 @@
 <div ng-include="'components/shell/shell.html'"></div>
 <div ng-controller="ItemsCtrl as items">
-	<div class="col-md-12">
+	<!-- <div class="col-md-12">
 		<input class="col-md-3" type='text' placeholder='Name' ng-model='items.newName'></input>
 		<input class="col-md-3" type='text' placeholder='Description' ng-model='items.newDescription'></input>
 		<input class="col-md-3" type='text' placeholder='Category' ng-model='items.newCategory'></input>
@@ -9,7 +9,7 @@
 
 	<div>
 		<md-button class='md-raised col-md-6' ng-click='items.NewAdd();'>Add</md-button>
-	</div>
+	</div> -->
 
 	<md-grid-list class="items-list" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="8" md-row-height-gt-md="1:1" md-row-height="1:1" md-gutter="8px" md-gutter-gt-sm="4px">
 	  	<md-grid-tile ng-repeat="item in items.allItems" class="lightgrey" md-rowspan="1" md-colspan="1" md-colspan-sm="1">

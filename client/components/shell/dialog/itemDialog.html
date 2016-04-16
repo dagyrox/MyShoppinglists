@@ -3,38 +3,45 @@
     <h2 class="md-title">
       Add a new item.
     </h2>
-    <form name="projectForm">
+    <form name="inputForm">
       <md-input-container>
-        <label>Name...</label>
-        <input md-maxlength="15" required name="name" ng-model="newThing">
-        <div ng-messages="projectForm.name.$error">
+        <label>Name</label>
+        <input md-maxlength="15" required name="name" ng-model="itemDialog.item.name">
+        <div ng-messages="inputForm.name.$error">
           <div ng-message="required">This is required.</div>
           <div ng-message="md-maxlength">The name has to be less than 15 characters long.</div>
         </div>
       </md-input-container>
       <md-input-container>
-        <label>Description...</label>
-        <input md-maxlength="30" required name="description" ng-model="newDescription">
-        <div ng-messages="projectForm.description.$error">
+        <label>Description</label>
+        <input md-maxlength="30" required name="description" ng-model="itemDialog.item.description">
+        <div ng-messages="inputForm.description.$error">
           <div ng-message="required">This is required.</div>
           <div ng-message="md-maxlength">The description has to be less than 30 characters long.</div>
         </div>
       </md-input-container>
       <md-input-container>
-        <label>Budget...</label>
-        <input md-maxlength="10" name="budget" ng-model="newBudget">
-        <div ng-messages="projectForm.budget.$error">
-          <div ng-message="md-maxlength">Hey big baller, 1 Million is your limit.</div>
+        <label>Category</label>
+        <input md-maxlength="15" required name="category" ng-model="itemDialog.item.category">
+        <div ng-messages="inputForm.category.$error">
+          <div ng-message="required">This is required.</div>
+        </div>
+      </md-input-container>
+      <md-input-container>
+        <label>Size</label>
+        <input md-maxlength="10" required name="size" ng-model="itemDialog.item.size">
+        <div ng-messages="inputForm.size.$error">
+          <div ng-message="required">This is required.</div>
         </div>
       </md-input-container>
     </form>
   </md-dialog-content>
   <div class="md-actions">
-    <md-button ng-click="closeDialog()" class="md-primary">
-      Cancel
+    <md-button ng-click="itemDialog.AddItem()" class="md-primary">
+      Add
     </md-button>
-    <md-button ng-click="addThing()" class="md-primary">
-      Save
+    <md-button ng-click="itemDialog.CloseDialog();" class="md-primary">
+      Cancel
     </md-button>
   </div>
 </md-dialog>
