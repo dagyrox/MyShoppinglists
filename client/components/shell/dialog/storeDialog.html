@@ -1,0 +1,65 @@
+<md-dialog flex='50' aria-label="Store dialog">
+  <md-dialog-content>
+    <h2 class="md-title">Add a new store.</h2>
+    <form name="inputForm">
+      <div  layout='row' layout-md='column'>
+        <md-input-container flex>
+          <label>Name</label>
+          <input md-maxlength="15" required name="name" ng-model="storeDialog.store.name">
+          <div ng-messages="inputForm.name.$error">
+            <div ng-message="required">This is required.</div>
+            <div ng-message="md-maxlength">The name has to be less than 15 characters long.</div>
+          </div>
+        </md-input-container>
+        <md-input-container flex>
+          <label>Description</label>
+          <input md-maxlength="30" required name="description" ng-model="storeDialog.store.description">
+          <div ng-messages="inputForm.description.$error">
+            <div ng-message="required">This is required.</div>
+            <div ng-message="md-maxlength">The description has to be less than 30 characters long.</div>
+          </div>
+        </md-input-container>
+      </div>
+      <div layout='row' layout-md='column'>
+        <md-input-container flex>
+          <label>Street</label>
+          <input md-maxlength="15" required name="street" ng-model="storeDialog.store.street">
+          <div ng-messages="inputForm.street.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <md-input-container flex>
+          <label>City</label>
+          <input md-maxlength="10" required name="city" ng-model="storeDialog.store.city">
+          <div ng-messages="inputForm.city.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+      </div>
+      <div layout='row' layout-md='column'>
+        <md-input-container flex>
+          <label>State</label>
+          <input md-maxlength="10" required name="state" ng-model="storeDialog.store.state">
+          <div ng-messages="inputForm.state.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+        <!-- <md-input-container flex>
+          <label>Geocode</label>
+          <input md-maxlength="10" required name="geocode" ng-model="storeDialog.store.geocode">
+          <div ng-messages="inputForm.geocode.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container> -->
+      </div>
+    </form>
+  </md-dialog-content>
+  <div class="md-actions">
+    <md-button ng-click="storeDialog.AddItem()" class="md-primary">
+      Add
+    </md-button>
+    <md-button ng-click="storeDialog.CloseDialog();" class="md-primary">
+      Cancel
+    </md-button>
+  </div>
+</md-dialog>

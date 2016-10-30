@@ -75,6 +75,13 @@ angular.module('myShoppinglistApp')
             controllerAs = 'itemDialog';
           }
           break;
+        case '/stores':
+          {
+            templateUrl = 'components/shell/dialog/storeDialog.html';
+            controller = 'StoreDialogController';
+            controllerAs = 'storeDialog';
+          }
+          break;
       }
 
       $mdDialog.show({

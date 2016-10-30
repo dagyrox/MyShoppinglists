@@ -1,0 +1,351 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"AddPatie",
+				"AddPatientsService"
+			],
+			[
+				"selected",
+				"selectedPatientPk"
+			],
+			[
+				"selectedP",
+				"selectedPatientPk"
+			],
+			[
+				"list",
+				"ListItem"
+			],
+			[
+				"Cr",
+				"create"
+			],
+			[
+				"md",
+				"mdDialog"
+			],
+			[
+				"id",
+				"_id"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"goto",
+				"gotoid"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/code/MyShoppinglists"
+	],
+	"file_history":
+	[
+		"/C/code/jasonpolitis.com/index.html",
+		"/C/code/MyShoppinglists/package.json",
+		"/C/code/Carbook/dev/DataLink.CareBook.Web/app/reports/_Common/CommonReportService.ts",
+		"/C/code/Carbook/dev/DataLink.CareBook.Web/app/core/directives/dlChickletBar/DlChickletBarService.ts",
+		"/C/code/Carbook/dev/DataLink.CareBook.Web/app/base/base.html",
+		"/C/code/Carbook/dev/DataLink.CareBook.Web/app/add-patients/add-patients.html",
+		"/C/code/Carbook/dev/DataLink.CareBook.Web/app/add-patients/edit-patients.html",
+		"/C/code/Carbook/dev/DataLink.CareBook.Web/app/add-patients/AddPatientsService.ts",
+		"/C/code/Carbook/dev/DataLink.CareBook.Web/app/add-patients/AddPatientsController.ts",
+		"/C/code/Carbook/dev/DataLink.CareBook.Web/app/add-patients/EditPatientController.ts",
+		"/C/code/MyShoppinglists/client/components/shell/dialog/storeDialog.controller.js",
+		"/C/code/MyShoppinglists/client/components/shell/dialog/storeDialog.html",
+		"/C/code/Carbook/dev/DataLink.CareBook.Web/tsconfig.json",
+		"/C/code/MyShoppinglists/client/components/shell/dialog/dialog.html",
+		"/C/code/MyShoppinglists/client/components/shell/shell.controller.js",
+		"/C/code/angular2-quickstart/tslint.json",
+		"/C/code/Carbook/dev/DataLink.CareBook.Web/app/claims-contestations/ClaimsContestationsModalController.ts",
+		"/C/code/MyShoppinglists/client/components/shell/dialog/itemDialog.html",
+		"/C/code/MyShoppinglists/client/components/shell/dialog/dialog.controller.js",
+		"/C/code/MyShoppinglists/client/app/stores/stores.html",
+		"/C/code/MyShoppinglists/server/api/item/item.model.js",
+		"/C/code/MyShoppinglists/client/components/shell/shell.html",
+		"/C/code/MyShoppinglists/client/app/items/items.html",
+		"/C/code/MyShoppinglists/client/components/shell/dialog/itemDialog.controller.js",
+		"/C/code/MyShoppinglists/client/app/shoppinglist/shoppinglist.html",
+		"/C/code/MyShoppinglists/server/config/seed.js",
+		"/C/code/MyShoppinglists/server/api/shoppinglist/shoppinglist.model.js",
+		"/C/code/MyShoppinglists/server/api/store/store.model.js",
+		"/C/code/MyShoppinglists/client/app/items/items.css",
+		"/C/code/MyShoppinglists/client/bower_components/angular-material/angular-material.css",
+		"/C/code/MyShoppinglists/client/app/stores/stores.css",
+		"/C/code/MyShoppinglists/client/app/stores/stores.controller.js",
+		"/C/code/MyShoppinglists/client/app/main/main.html",
+		"/C/code/MyShoppinglists/client/app/main/main.controller.js",
+		"/C/code/MyShoppinglists/client/app/items/items.controller.js",
+		"/C/code/MyShoppinglists/client/app/main/main.css",
+		"/C/code/MyShoppinglists/server/api/store/index.js",
+		"/C/code/MyShoppinglists/client/app/shoppinglist/shoppinglist.controller.js",
+		"/C/code/MyShoppinglists/server/routes.js",
+		"/C/code/MyShoppinglists/server/config/environment/index.js",
+		"/C/code/MyShoppinglists/server/api/shoppinglist/shoppinglist.controller.js",
+		"/C/code/MyShoppinglists/client/index.html",
+		"/C/code/MyShoppinglists/server/config/socketio.js",
+		"/C/code/MyShoppinglists/server/api/store/store.controller.js",
+		"/C/code/MyShoppinglists/server/app.js",
+		"/C/code/MyShoppinglists/client/bower_components/angular-material/angular-material.js",
+		"/C/code/MyShoppinglists/server/api/listitem/listitem.model.js",
+		"/C/code/MyShoppinglists/server/api/listitem/listitem.controller.js",
+		"/C/code/MyShoppinglists/client/app/app.js",
+		"/C/code/MyShoppinglists/client/app/main/main.js",
+		"/C/code/MyShoppinglists/server/config/express.js",
+		"/C/code/MyShoppinglists/OnlineResources.txt",
+		"/C/code/MyShoppinglists/server/config/local.env.js",
+		"/C/code/MyShoppinglists/server/config/local.env.sample.js",
+		"/C/code/MyShoppinglists/requirements/Base requirements",
+		"/C/code/MyShoppinglists/client/app/shoppinglist/shoppinglist.js",
+		"/C/code/MyShoppinglists/server/api/shoppinglist/index.js",
+		"/C/code/MyShoppinglists/client/app/shoppinglist/shoppinglist.css",
+		"/C/code/MyShoppinglists/node_modules/compression/HISTORY.md",
+		"/C/code/MyShoppinglists/bower.json",
+		"/C/code/MyShoppinglists/node_modules/ng-annotate/tests/ngmin-tests/repo/route-provider.js",
+		"/C/code/MyShoppinglists/Gruntfile.js",
+		"/C/data/log/mongo.log",
+		"/C/data/log/mongo.log.2015-11-09T07-11-21",
+		"/C/Program Files/MongoDB/mongod.cfg"
+	],
+	"find":
+	{
+		"height": 58.0
+	},
+	"find_in_files":
+	{
+		"height": 176.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"yeoman",
+			"let",
+			"savePromise",
+			"sharedModel",
+			"selectedPatientPk",
+			"this.selectedPatientPk",
+			"selectedPatientPk",
+			"ng-click=\"addPatients.Save()\"",
+			"selectedPatient",
+			"selectedPatientPk",
+			"selectedPatient",
+			"selectedPatientPk",
+			"selectedPatient",
+			"selectedPatientPk",
+			"selectedPatient",
+			"PatientSelect",
+			"selectedPatientPk",
+			"scope",
+			"AddPatientsService",
+			"selectedPatientPk",
+			"$scope",
+			"$scope.addPatients",
+			"info",
+			"sm",
+			"xs",
+			"itemDialog",
+			"item",
+			"controller",
+			"md-label",
+			"md-label ",
+			"label",
+			"md-icon-button",
+			"delete-btn",
+			"items",
+			"things",
+			"avatar:svg-",
+			"div",
+			"stores",
+			"<input",
+			"input",
+			"Name",
+			"dialogcontroller",
+			"shoppinglists",
+			"addThing",
+			"api/shoppinglist/",
+			"/api/shoppinglist/",
+			"$scope.",
+			".items",
+			"listitem.socket",
+			"listitem",
+			"api/listitem",
+			"listitem",
+			"api/listitem",
+			"listitem",
+			"$scope",
+			"route",
+			"mdd",
+			"$routeProvider"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"AddPatientsService.sharedModel.selectedPatient",
+			"AddPatientsService.sharedModel.selectedPatientPk",
+			"AddPatientsService.sharedModel.selectedPatient",
+			"AddPatientsService",
+			"description",
+			"md",
+			"sm",
+			"storeDialog",
+			"store",
+			"stores",
+			"items",
+			"item",
+			"span",
+			"items",
+			"<input class=\"col-md-3\"",
+			"input class=\"col-md-3\"",
+			"Geocode",
+			"State",
+			"City",
+			"Street",
+			"vm.",
+			".listItems",
+			"vm"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 43.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "MyShoppingList.sublime-project",
+	"replace":
+	{
+		"height": 108.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 408.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

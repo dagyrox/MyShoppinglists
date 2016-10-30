@@ -76,7 +76,7 @@
 // Shoppinglist.find({}).remove(function() {
 //   Shoppinglist.create({
 //     name : 'Bills CC Budget',
-//     info : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
+//     description : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
 //     active: true,
 //     startdate: '2015-11-05',
 //     stopdate: '2015-11-12',
@@ -87,7 +87,7 @@
 //   },
 //   {
 //     name : 'Bills CC Budget',
-//     info : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
+//     description : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
 //     active: true,
 //     startdate: '2015-10-31',
 //     stopdate: '2015-11-06',
@@ -98,7 +98,7 @@
 //   },
 //   {
 //     name : 'Bills CC Budget',
-//     info : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
+//     description : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
 //     active: true,
 //     startdate: '2015-10-23',
 //     stopdate: '2015-10-30',
@@ -110,7 +110,7 @@
 //   },
 //   {
 //     name : 'Bills CC Budget',
-//     info : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
+//     description : 'Only things that get paid for using the bills creditcard go on this list.  Gas, Groceries, Emergencies, etc.',
 //     active: true,
 //     startdate: '2015-10-15',
 //     stopdate: '2015-10-22',

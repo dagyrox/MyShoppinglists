@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 var StoreSchema = new Schema({
   name: String,
-  info: String,
+  description: String,
   street: String,
   city: String,
   state: String,

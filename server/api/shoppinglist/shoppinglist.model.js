@@ -5,7 +5,7 @@ var mongoose = require('mongoose'),
 
 var ShoppinglistSchema = new Schema({
   name: String,
-  info: String,
+  description: String,
   active: Boolean,
   startdate: Date,
   stopdate: Date,
